@@ -88,13 +88,11 @@ namespace clearsound
                 {
                     string jsonResponse = await client.GetStringAsync(DeezerApiUrl);
 
-                    // Вывод JSON в консоль для проверки
                     Console.WriteLine(jsonResponse);
 
-                    // Десериализация ответа в объект
+                    
                     var result = JsonConvert.DeserializeObject<DeezerResponse>(jsonResponse);
 
-                    // Очищаем старые данные и добавляем новые
                     Tracks.Clear();
                     foreach (var item in result.Data)
                     {
